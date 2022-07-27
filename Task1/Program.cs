@@ -13,96 +13,20 @@
 Группа 3: 4 6 9 10 14 15 21 22 25 26 33 34 35 38 39 46 49
 Группа 4: 8 12 18 20 27 28 30 42 44 45 50
 Группа 5: 16 24 36 40
-Группа 6: 32 48    
- */
-/*
-int n = InputNumbers("Введите число N: ");
-
-int[] tempArray = CreateArray(n);
-CreateRows(tempArray);
-
-void CreateRows(int[] arrayCheck)
-{
-  int[] arrayTemp = new int[arrayCheck.Length];
-  int m = 1;
-  int count = 0;
-  int tempNumber = 0;
-  int tempNumber2 = 0;
-  int tempSwitch = 0;
-  
-  for (int i = 0; i < arrayCheck.Length; i++)
-  {
-    Array.Clear(arrayTemp);
-    count = 0;
-    if (arrayCheck[i] != 0)
-    {
-      arrayTemp[count] = arrayCheck[i];
-      tempNumber2 = arrayCheck[i];
-
-      for (int j = i; j < arrayCheck.Length; j++)
-      {
-        if (arrayCheck[j] % tempNumber2 != 0 || arrayCheck[j] / tempNumber2 == 1)
-        {
-          tempSwitch = 0;
-          tempNumber = arrayCheck[j];
-          for (int k = 0; k < count; k++)
-          {
-            if (tempNumber % arrayTemp[k] == 0) tempSwitch++;
-          }
-          if (tempSwitch == 0)
-          {
-            arrayTemp[count] = arrayCheck[j];
-            count++;
-            arrayCheck[j] = 0;
-          }
-        }
-      }
-      Console.WriteLine($"Группа {m++}: {PrintIntArray(arrayTemp)}");
-    }
-  }
-}
-
-int InputNumbers(string input)
-{
-  Console.Write(input);
-  int output = Convert.ToInt32(Console.ReadLine());
-  return output;
-}
-
-int[] CreateArray(int n)
-{
-  int[] temp = new int[n];
-  for (int i = 0; i < temp.GetLength(0); i++)
-  {
-    temp[i] = i + 1;
-  }
-  return temp;
-}
-
-string PrintIntArray(int[] array)
-{
-  string result = string.Empty;
-  for (int i = 0; i < array.Length; i++)
-  {
-    if (array[i] != 0) result += $"{array[i],1} ";
-  }
-  return result;
-}*/
-
+Группа 6: 32 48    */
 
 long n = InputNumbers("Введите число N: ");
 
-
 long[] arrayTemp = CreateArray(n);
-CreateRows(arrayTemp);
+CreateGroups(arrayTemp);
 
-void CreateRows(long[] arrayCheck)
+void CreateGroups(long[] arrayCheck)
 {
   long[] arrayTemp = new long[arrayCheck.Length];
   long m = 1;
   long count = 0;
-  long tempNumber = 0;
-  long tempNumber2 = 0;
+  long tempNumberA = 0;
+  long tempNumberB = 0;
   long tempSwitch = 0;
   
   for (long i = 0; i < arrayCheck.Length; i++)
@@ -112,17 +36,17 @@ void CreateRows(long[] arrayCheck)
     if (arrayCheck[i] != 0)
     {
       arrayTemp[count] = arrayCheck[i];
-      tempNumber2 = arrayCheck[i];
+      tempNumberB = arrayCheck[i];
 
       for (long j = i; j < arrayCheck.Length; j++)
       {
-        if (arrayCheck[j] % tempNumber2 != 0 || arrayCheck[j] / tempNumber2 == 1)
+        if (arrayCheck[j] % tempNumberB != 0 || arrayCheck[j] / tempNumberB == 1)
         {
           tempSwitch = 0;
-          tempNumber = arrayCheck[j];
+          tempNumberA = arrayCheck[j];
           for (long k = 0; k < count; k++)
           {
-            if (tempNumber % arrayTemp[k] == 0) tempSwitch++;
+            if (tempNumberA % arrayTemp[k] == 0) tempSwitch++;
           }
           if (tempSwitch == 0)
           {
@@ -163,4 +87,3 @@ string PrintIntArray(long[] array)
   }
   return result;
 }
-
